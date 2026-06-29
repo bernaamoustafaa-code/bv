@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght=0,400;0,600;1,400&family=Syncopate:wght@400;700&family=Unbounded:wght@700;800;900&family=Syne:wght@700;800&family=Anton&family=Saira+Extra+Condensed:wght@800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Arial Black", Gadget, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Montserrat", sans-serif;
+  --font-horizon: "Saira Extra Condensed", "Anton", "Unbounded", "Syncopate", sans-serif;
+  
+  --color-brand-gray: #1a1a1a;
+  --color-brand-dark: rgba(255, 255, 255, 0.05);
+  --color-brand-burgundy: #3b0764; /* deep purple/indigo accent */
+}
+
+/* Custom scrollbar styling for a premium frosted glass feel */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+html, body {
+  overflow-x: hidden;
+  background-color: #000000;
+  color: #ffffff;
+}
