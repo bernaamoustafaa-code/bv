@@ -1,0 +1,6 @@
+{
+  "name": "Berna Moustapha Portfolio",
+  "description": "A premium creative portfolio website for Berna Moustapha featuring interactive context cards for About, Creations, and Contact.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
