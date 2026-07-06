@@ -10,10 +10,8 @@ import image28 from "@/assets/28_v2.webp";
 import image29 from "@/assets/29_v2.webp";
 import image32 from "@/assets/32_v2.webp";
 import noEye from "@/assets/no_eye_v2.webp";
-import shoot4 from "@/assets/shoot_4_v2.webp";
-import shoot4_1 from "@/assets/shoot_4.1_v2.webp";
-import shoot4_2 from "@/assets/shoot_4.2_v2.webp";
-import shoot9 from "@/assets/shoot_9_v2.webp";
+import s1 from "@/assets/s1_v2.webp";
+import s2 from "@/assets/s2_v2.webp";
 import shot1 from "@/assets/shot_1_v2.webp";
 import shot2 from "@/assets/shot_2_v2.webp";
 import viceLogoShot from "@/assets/vice_logo_shot_v2.webp";
@@ -69,27 +67,25 @@ const PROJECTS: Project[] = [
     aspect: "3/4"
   },
   {
-    id: "bernavision-identity",
-    title: "Basicplus",
-    category: "Luxury Brand Identity & Design",
+    id: "denali",
+    title: "Denali",
+    category: "AI Landscape & Nature Narrative",
     year: "2026",
-    description: "A comprehensive brand ecosystem celebrating fluid curvature, tactile paper, and eye-centric themes.",
-    longDescription: ".Bernavision is a boutique brand identity built for visual creators, art directors, and galleries. Prioritizing hand-drawn sketch motifs—like the distinctive lash eye logo—and custom organic script typography, the brand represents an elegant counterweight to clinical geometric corporate identities. It explores physical textures such as debossed cotton paper and matte slate gray elements.",
-    image: shoot4,
-    tags: ["Typography", "Creative Direction", "Logo Design", "Editorial Strategy"],
+    description: "An awe-inspiring cinematic journey capturing the rugged, raw beauty of the Alaskan wilderness.",
+    longDescription: "Denali is a high-contrast visual exploration of rugged peak structures, alpine light shifts, and pristine wilderness. Designed to convey a sense of sublime isolation and dramatic texture, each frame merges landscape photography principles with synthetic art generation.",
+    image: s1,
+    tags: ["Landscape Narrative", "AI Visuals", "Cinematic", "Art Direction"],
     specs: [
-      { label: "Client", value: "Bernavision Creative Network" },
-      { label: "Role", value: "Lead Brand Strategist & Visual Designer" },
-      { label: "Materials", value: "Indian Ink, 600gsm Cotton Card, Debossed Foil" },
-      { label: "Recognition", value: "Featured on Behance Editorial (Branding)" }
+      { label: "Commission", value: "Berna Moustapha Studio" },
+      { label: "Role", value: "AI Visual Creator & Art Director" },
+      { label: "Medium", value: "Generative AI (Custom Diffusion)" },
+      { label: "Vibe", value: "Alpine Wilderness Noir" }
     ],
     images: [
-      shoot4,
-      shoot4_1,
-      shoot4_2,
-      shoot9
+      s1,
+      s2
     ],
-    aspect: "3/4"
+    aspect: "4/3"
   },
   {
     id: "chroma-static",
