@@ -1,283 +1,98 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Project } from "../types";
-import { Grid, Layers, ExternalLink, ArrowLeft, Calendar, Tag, Compass, ArrowRight, X } from "lucide-react";
+import { motion } from "motion/react";
+import { Mail, Instagram, MessageCircle, ArrowUpRight } from "lucide-react";
 
-// Local high-fidelity assets
-import image19 from "@/assets/19_v2.webp";
-import image20 from "@/assets/20_v2.webp";
-import image28 from "@/assets/28_v2.webp";
-import image29 from "@/assets/29_v2.webp";
-import image32 from "@/assets/32_v2.webp";
-import noEye from "@/assets/no_eye_v2.webp";
-import s1 from "@/assets/s1_v2.webp";
-import s2 from "@/assets/s2_v2.webp";
-import shot1 from "@/assets/shot_1_v2.webp";
-import shot2 from "@/assets/shot_2_v2.webp";
-import viceLogoShot from "@/assets/vice_logo_shot_v2.webp";
-import viceShot1 from "@/assets/vice_shot_1_v2.webp";
-import viceShot3 from "@/assets/vice_shot_3_v2.webp";
-import viceSleeveShot from "@/assets/vice_sleeve_shot_v2.webp";
-
-// Curated high-fidelity creative projects matching Berna's aesthetic
-const PROJECTS: Project[] = [
-  {
-    id: "dark-nights",
-    title: "Dark Nights",
-    category: "AI Cinematic Fashion Narrative",
-    year: "2026",
-    description: "A moody, high-fashion visual series exploring cinematic nocturnes, shadow play, and bold silhouettes.",
-    longDescription: "Dark Nights is an avant-garde AI-generated cinematic fashion narrative that explores the mystery, elegance, and solitude of urban nocturnes. Specially crafted using custom diffusion prompting, the project blends high-contrast chiaroscuro lighting, textured rain-slicked concrete, and bold neo-noir silhouettes. Each frame is designed to feel like a high-end editorial campaign, bridging the boundary between fashion design and synthetic cinematic art.",
-    image: image29,
-    tags: ["Cinematic Narrative", "AI Fashion", "Chiaroscuro", "Art Direction"],
-    specs: [
-      { label: "Commission", value: "Berna Moustapha Studio" },
-      { label: "Role", value: "AI Visual Creator & Art Director" },
-      { label: "Medium", value: "Generative AI (Custom Diffusion & ControlNet)" },
-      { label: "Vibe", value: "Neo-Noir Chiaroscuro" }
-    ],
-    images: [
-      image19,
-      image20,
-      image28,
-      image29,
-      image32
-    ],
-    aspect: "3/4"
-  },
-  {
-    id: "aetherial-eye",
-    title: "Vibezzz",
-    category: "Interactive Spatial Installation",
-    year: "2026",
-    description: "Generative canvas projection exploring physical sight, eye tracking, and hand-sketched boundaries.",
-    longDescription: "Aetherial Eye is an immersive spatial installation merging raw physical art media with real-time digital feedback. Projectors cast generative vector strokes onto physical charcoal paintings, controlled entirely by visitors' eye movements. This project visualizes the dialogue between organic human gaze and digital surveillance, creating a dynamic, living gallery environment.",
-    image: shot2,
-    tags: ["Generative Art", "Eye Tracking", "Projection Mapping", "Charcoal Canvas"],
-    specs: [
-      { label: "Commission", value: "Centre de Création Contemporaine, Paris" },
-      { label: "Role", value: "Creative Director & Code Architect" },
-      { label: "Technologies", value: "Charcoal, High-Gain Screen, WebGL, EyeTribe SDK" },
-      { label: "Exhibited", value: "Espace Lumière, May 2026" }
-    ],
-    images: [
-      shot1,
-      shot2
-    ],
-    aspect: "3/4"
-  },
-  {
-    id: "denali",
-    title: "Denali",
-    category: "AI Landscape & Nature Narrative",
-    year: "2026",
-    description: "An awe-inspiring cinematic journey capturing the rugged, raw beauty of the Alaskan wilderness.",
-    longDescription: "Denali is a high-contrast visual exploration of rugged peak structures, alpine light shifts, and pristine wilderness. Designed to convey a sense of sublime isolation and dramatic texture, each frame merges landscape photography principles with synthetic art generation.",
-    image: s1,
-    tags: ["Landscape Narrative", "AI Visuals", "Cinematic", "Art Direction"],
-    specs: [
-      { label: "Commission", value: "Berna Moustapha Studio" },
-      { label: "Role", value: "AI Visual Creator & Art Director" },
-      { label: "Medium", value: "Generative AI (Custom Diffusion)" },
-      { label: "Vibe", value: "Alpine Wilderness Noir" }
-    ],
-    images: [
-      s1,
-      s2
-    ],
-    aspect: "4/3"
-  },
-  {
-    id: "chroma-static",
-    title: "Vice",
-    category: "Interactive Digital Medium",
-    year: "2026",
-    description: "A tactile digital canvas translating micro-gestures into generative chromatic noise and sound.",
-    longDescription: "Chroma Static is a custom-coded web-only digital canvas that converts delicate cursor tracks and touch coordinates into beautiful fluid ripples and chromatic frequency sweeps. Paired with synthesized sound, it acts as a digital sanctuary of negative space, encouraging users to play, breathe, and slow down.",
-    image: viceLogoShot,
-    tags: ["WebGL", "Web Audio API", "Interactive UX", "Creative Coding"],
-    specs: [
-      { label: "Medium", value: "Standalone Creative Web Experience" },
-      { label: "Role", value: "Sole Creator & Frontend Architect" },
-      { label: "Stack", value: "React, Three.js, Tone.js, Tailwind CSS" },
-      { label: "Reach", value: "Self-published, over 40k unique sessions" }
-    ],
-    images: [
-      viceLogoShot,
-      viceShot1,
-      viceShot3,
-      viceSleeveShot
-    ],
-    aspect: "4/3"
-  }
-];
-
-export default function Creations() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
-
-  const handleSelectProject = (proj: Project) => {
-    setSelectedProject(proj);
-  };
+export default function Contact() {
+  const contactLinks = [
+    {
+      label: "Email",
+      value: "bernamoustapha@hotmail.com",
+      href: "mailto:bernamoustapha@hotmail.com",
+      icon: Mail,
+    },
+    {
+      label: "Instagram",
+      value: "instagram.com/bernamoustapha",
+      href: "https://www.instagram.com/bernamoustapha?igsh=NGIyYmU0MzM4bDd1&utm_source=qr",
+      icon: Instagram,
+    },
+    {
+      label: "WhatsApp",
+      value: "01014415541",
+      href: "https://wa.me/201014415541",
+      icon: MessageCircle,
+    }
+  ];
 
   return (
-    <div className="text-white h-full overflow-y-auto pr-1 custom-scrollbar" id="creations-section">
-      {/* Dynamic Grid of Creations styled beautifully in their natural aspect ratios */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto w-full mb-8" id="creations-grid">
-        {PROJECTS.map((proj) => (
-          <motion.div
-            key={proj.id}
-            layoutId={`project-card-container-${proj.id}`}
-            onClick={() => handleSelectProject(proj)}
-            onHoverStart={() => setHoveredProject(proj.id)}
-            onHoverEnd={() => setHoveredProject(null)}
-            className={`group cursor-pointer relative overflow-hidden rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-300 w-full ${
-              proj.aspect === "4/3" ? "aspect-[4/3]" : "aspect-[3/4]"
-            }`}
-            id={`project-card-${proj.id}`}
+    <div className="text-white h-full overflow-y-auto pr-1 custom-scrollbar flex flex-col justify-between py-4" id="contact-section">
+      <div className="max-w-4xl w-full mx-auto px-4 flex-grow flex flex-col justify-center">
+        
+        {/* Top: Left-aligned texts */}
+        <div className="text-left space-y-6 mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/50 block"
           >
-            {/* Project Image filling the shape */}
-            <img
-              src={proj.image}
-              alt={proj.title}
-              referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-              id={`project-img-${proj.id}`}
-            />
-
-            {/* Gradient Overlay for legibility: blending with black and using white text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-300" />
-
-            {/* Year indicator (top right) */}
-            <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 text-[9px] font-mono tracking-widest uppercase rounded text-white z-20 border border-white/10">
-              {proj.year}
-            </span>
-
-            {/* Project Name at the Bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20">
-              <h4 className="font-horizon tracking-[-0.1em] font-black text-lg sm:text-xl text-white group-hover:text-white transition-colors uppercase leading-[0.9]">
-                {proj.title}
-              </h4>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Immersive Dedicated Project Detail Page */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black text-white z-50 flex flex-col h-screen overflow-y-auto custom-scrollbar select-text"
-            id="project-page-overlay"
+            Connection
+          </motion.span>
+          
+          <motion.h3 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-xl sm:text-3xl font-horizon tracking-[-0.11em] font-black text-white uppercase leading-[0.85]"
           >
-            {/* Elegant Header Area with Blur backdrop */}
-            <div className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/10 py-6 px-6 sm:px-12 md:px-20 flex justify-between items-center">
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="flex items-center gap-2 text-xs font-sans tracking-widest uppercase text-white/60 hover:text-white transition-colors cursor-pointer group"
-                id="project-page-back-btn"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Back to Creations
-              </button>
-              <div className="text-[10px] font-mono tracking-widest uppercase text-white/40">
-                {selectedProject.year} • Project Detail
-              </div>
-            </div>
+            start a collaboration
+          </motion.h3>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-sm sm:text-base font-sans font-light leading-relaxed text-zinc-300 max-w-2xl"
+          >
+            If you have a campaign to build, a brand to elevate, or a visual world that needs to exist — reach out. I work with brands, designers, and artists who believe in the power of intention-driven imagery.
+          </motion.p>
+        </div>
 
-            {/* Main Content: Minimalist Centered Editorial Layout with ONLY Images */}
-            <div className="max-w-4xl w-full mx-auto px-6 sm:px-12 py-12 md:py-16 flex-grow">
-              
-              {/* Main Title Banner (Centered, simple, beautiful) */}
-              <div className="border-b border-white/10 pb-8 mb-12 text-center">
-                <h2 className="font-horizon tracking-[-0.11em] font-black text-2xl sm:text-4xl md:text-5xl text-white uppercase leading-[0.85]">
-                  {selectedProject.title}
-                </h2>
-              </div>
-
-              {/* Stack of ALL high-fidelity images */}
-              <div className="space-y-12 max-w-2xl mx-auto" id="project-page-images-stack">
-                {selectedProject.images && selectedProject.images.length > 0 ? (
-                  selectedProject.images.map((img, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 25 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      onClick={() => setZoomedImage(img)}
-                      className={`group/img cursor-zoom-in relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 hover:border-white/30 transition-all duration-500 shadow-xl ${
-                        selectedProject.aspect === "4/3" ? "aspect-[4/3]" : "aspect-[3/4]"
-                      }`}
-                    >
-                      <img
-                        src={img}
-                        alt={`${selectedProject.title} Frame ${index + 1}`}
-                        referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-[1.02]"
-                      />
-                      {/* Elegant hover detail label */}
-                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                        <span className="text-[10px] font-mono tracking-widest uppercase bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-md border border-white/10 flex items-center gap-1.5 text-white">
-                          Enlarge Image {index + 1}/{selectedProject.images?.length}
-                        </span>
-                      </div>
-                    </motion.div>
-                  ))
-                ) : (
-                  <div className={`rounded-2xl overflow-hidden border border-white/10 bg-white/5 ${
-                    selectedProject.aspect === "4/3" ? "aspect-[4/3]" : "aspect-[3/4]"
-                  }`}>
-                    <img
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
-                    />
+        {/* Bottom: Centered Contact Links */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="w-full border-t border-white/10 pt-12 flex flex-col items-center justify-center text-center space-y-6"
+          id="centered-contact-channels"
+        >
+          
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-2xl justify-center items-center">
+            {contactLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group relative flex flex-col items-center p-6 w-full sm:w-48 transition-all duration-300"
+                  id={`contact-link-${link.label.toLowerCase()}`}
+                >
+                  <div className="mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
                   </div>
-                )}
-              </div>
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-white/50 mb-1">{link.label}</span>
+                  <span className="text-xs font-sans font-light text-zinc-300 group-hover:text-white transition-colors text-center truncate w-full px-2">
+                    {link.value}
+                  </span>
+                  <ArrowUpRight className="absolute top-3 right-3 w-3 h-3 text-white/10 group-hover:text-white/40 transition-colors" />
+                </a>
+              );
+            })}
+          </div>
+        </motion.div>
 
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Extreme Detail Full-Screen Pure Lightbox */}
-      <AnimatePresence>
-        {zoomedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-[60] flex items-center justify-center p-4 cursor-zoom-out"
-            onClick={() => setZoomedImage(null)}
-          >
-            {/* Close button top-right */}
-            <button
-              onClick={() => setZoomedImage(null)}
-              className="absolute top-6 right-6 z-[70] p-3 rounded-full bg-black/50 border border-white/10 text-white/80 hover:text-white hover:bg-black/80 transition-all cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-            
-            <motion.img
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.95 }}
-              transition={{ type: "spring", damping: 30, stiffness: 250 }}
-              src={zoomedImage}
-              alt="Zoomed project series visual"
-              referrerPolicy="no-referrer"
-              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      </div>
     </div>
   );
 }
