@@ -18,6 +18,9 @@ import viceLogoShot from "@/assets/vice_logo_shot_v2.webp";
 import viceShot1 from "@/assets/vice_shot_1_v2.webp";
 import viceShot3 from "@/assets/vice_shot_3_v2.webp";
 import viceSleeveShot from "@/assets/vice_sleeve_shot_v2.webp";
+import vulera1 from "@/assets/vulera_1.webp";
+import vulera2 from "@/assets/vulera_2.webp";
+import vulera3 from "@/assets/vulera_3.webp";
 
 // Curated high-fidelity creative projects matching Berna's aesthetic
 const PROJECTS: Project[] = [
@@ -109,6 +112,28 @@ const PROJECTS: Project[] = [
       viceSleeveShot
     ],
     aspect: "4/3"
+  },
+  {
+    id: "vulera-fragrance",
+    title: "Vulera Fragrance",
+    category: "AI Luxury Product & Lifestyle Campaign",
+    year: "2026",
+    description: "A sun-drenched Mediterranean summer campaign for a two-scent perfume duo, blending still life, coastal lifestyle, and editorial elegance.",
+    longDescription: "Vulera Fragrance is an AI-generated luxury product campaign built around a two-scent summer duo, Fruit Punch and Celestial Dew. The series moves between intimate still-life compositions and sun-lit lifestyle scenes, pairing warm citrus and vanilla ingredient styling with coastal blues and Amalfi-inspired backdrops. Each frame was crafted to feel like a premium fragrance house's seasonal editorial, balancing product clarity with an aspirational sense of place.",
+    image: vulera1,
+    tags: ["Product Campaign", "AI Fashion", "Lifestyle", "Art Direction"],
+    specs: [
+      { label: "Client", value: "Vulèra Fragrances" },
+      { label: "Role", value: "AI Creative Producer & Art Director" },
+      { label: "Medium", value: "Generative AI (Higgsfield)" },
+      { label: "Vibe", value: "Mediterranean Summer Editorial" }
+    ],
+    images: [
+      vulera1,
+      vulera2,
+      vulera3
+    ],
+    aspect: "3/4"
   }
 ];
 
