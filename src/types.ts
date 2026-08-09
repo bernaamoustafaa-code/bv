@@ -12,7 +12,7 @@ export interface Project {
   aspect?: "3/4" | "4/3";
 }
 
-export type SectionType = 'about' | 'creations' | 'contact' | null;
+export type SectionType = 'about' | 'creations' | 'services' | 'contact' | null;
 
 export interface ContactMessage {
   name: string;
