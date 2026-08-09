@@ -21,6 +21,9 @@ import viceSleeveShot from "@/assets/vice_sleeve_shot_v2.webp";
 import vulera1 from "@/assets/vulera_1.webp";
 import vulera2 from "@/assets/vulera_2.webp";
 import vulera3 from "@/assets/vulera_3.webp";
+import sojan1 from "@/assets/sojan_1.webp";
+import sojan2 from "@/assets/sojan_2.webp";
+import sojan3 from "@/assets/sojan_3.webp";
 
 // Curated high-fidelity creative projects matching Berna's aesthetic
 const PROJECTS: Project[] = [
@@ -132,6 +135,28 @@ const PROJECTS: Project[] = [
       vulera1,
       vulera2,
       vulera3
+    ],
+    aspect: "3/4"
+  },
+  {
+    id: "sojan-of-egypt",
+    title: "Sojan of Egypt",
+    category: "AI Accessory & Lifestyle Campaign",
+    year: "2026",
+    description: "A sun-soaked poolside campaign for a handcrafted crochet clutch, pairing warm terracotta tones with coastal styling.",
+    longDescription: "Sojan of Egypt is an AI-generated accessory campaign built around a hand-crocheted starfish and cowrie shell clutch. The series moves from an aspirational poolside lifestyle scene into clean studio product shots, capturing the handmade texture of the piece from multiple angles. Warm terracotta tones are set against sun-drenched blues, balancing lifestyle storytelling with precise product clarity.",
+    image: sojan1,
+    tags: ["Product Campaign", "AI Lifestyle", "Accessories", "Art Direction"],
+    specs: [
+      { label: "Client", value: "Sojan of Egypt" },
+      { label: "Role", value: "AI Creative Producer & Art Director" },
+      { label: "Medium", value: "Generative AI (Higgsfield)" },
+      { label: "Vibe", value: "Coastal Summer Editorial" }
+    ],
+    images: [
+      sojan1,
+      sojan2,
+      sojan3
     ],
     aspect: "3/4"
   }
