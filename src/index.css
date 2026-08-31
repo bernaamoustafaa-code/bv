@@ -78,3 +78,20 @@ html, body {
     0 0 30px rgba(217, 180, 106, 0.5),
     0 0 65px rgba(217, 180, 106, 0.3);
 }
+
+/* Flat glowy-black text: solid black letters lifted off the dark bg by a soft halo */
+.glow-black-text {
+  color: #050505;
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 24px rgba(217, 180, 106, 0.4),
+    0 0 50px rgba(217, 180, 106, 0.25);
+}
+
+.glow-black-text:hover {
+  color: #000000;
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.55),
+    0 0 32px rgba(243, 224, 184, 0.6),
+    0 0 65px rgba(217, 180, 106, 0.4);
+}
