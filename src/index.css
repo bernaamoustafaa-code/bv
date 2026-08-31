@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght=0,400;0,600;1,400&family=Syncopate:wght@400;700&family=Unbounded:wght@700;800;900&family=Syne:wght@700;800&family=Anton&family=Saira+Extra+Condensed:wght@800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght=0,400;0,600;1,400&family=Syncopate:wght@400;700&family=Unbounded:wght@700;800;900&family=Syne:wght@700;800&family=Anton&family=Saira+Extra+Condensed:wght@800;900&family=Zen+Dots&family=Monsieur+La+Doulaise&family=Italiana&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,10 +6,14 @@
   --font-serif: "Playfair Display", serif;
   --font-sans: "Montserrat", sans-serif;
   --font-horizon: "Saira Extra Condensed", "Anton", "Unbounded", "Syncopate", sans-serif;
-  
+  --font-zen-dots: "Zen Dots", sans-serif;
+  --font-doulaise: "Monsieur La Doulaise", cursive;
+  --font-italiana: "Italiana", serif;
+
   --color-brand-gray: #1a1a1a;
   --color-brand-dark: rgba(255, 255, 255, 0.05);
   --color-brand-burgundy: #3b0764; /* deep purple/indigo accent */
+  --color-brand-gold: #d9b46a; /* warm glow accent used in the nav strip */
 }
 
 /* Custom scrollbar styling for a premium frosted glass feel */
@@ -36,4 +40,21 @@ html, body {
   overflow-x: hidden;
   background-color: #000000;
   color: #ffffff;
+}
+
+/* Warm glow used on the horizontal section nav, echoing the reference "as seen in" strip */
+.glow-gold-text {
+  color: rgba(238, 209, 150, 0.92);
+  text-shadow:
+    0 0 6px rgba(217, 180, 106, 0.55),
+    0 0 18px rgba(217, 180, 106, 0.35),
+    0 0 40px rgba(217, 180, 106, 0.18);
+}
+
+.glow-gold-text:hover {
+  color: #f3e0b8;
+  text-shadow:
+    0 0 8px rgba(243, 224, 184, 0.8),
+    0 0 24px rgba(217, 180, 106, 0.55),
+    0 0 55px rgba(217, 180, 106, 0.3);
 }
