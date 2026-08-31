@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Camera, Sparkles, Image, Megaphone, Share2, Shirt } from "lucide-react";
+import { Camera, Sparkles, Image, Shirt } from "lucide-react";
 
 const SERVICES = [
   {
@@ -13,14 +13,6 @@ const SERVICES = [
   {
     title: "Static Ad Creatives",
     icon: Sparkles,
-  },
-  {
-    title: "Meta Ad Creatives",
-    icon: Megaphone,
-  },
-  {
-    title: "Social Media Content",
-    icon: Share2,
   },
   {
     title: "Fashion Mockups",
