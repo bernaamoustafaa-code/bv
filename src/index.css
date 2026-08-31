@@ -58,3 +58,23 @@ html, body {
     0 0 24px rgba(217, 180, 106, 0.55),
     0 0 55px rgba(217, 180, 106, 0.3);
 }
+
+/* Metal-black chrome text (matches the logo's chrome eye) with a warm ambient glow behind it */
+.metal-glow-text {
+  background-image: linear-gradient(135deg, #4a4a4a 0%, #0a0a0a 22%, #050505 45%, #3a3a3a 60%, #0a0a0a 80%, #5a5a5a 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow:
+    0 0 8px rgba(217, 180, 106, 0.45),
+    0 0 22px rgba(217, 180, 106, 0.3),
+    0 0 48px rgba(217, 180, 106, 0.18);
+}
+
+.metal-glow-text:hover {
+  text-shadow:
+    0 0 12px rgba(243, 224, 184, 0.65),
+    0 0 30px rgba(217, 180, 106, 0.5),
+    0 0 65px rgba(217, 180, 106, 0.3);
+}
