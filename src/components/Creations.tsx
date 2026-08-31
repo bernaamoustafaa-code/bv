@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Project } from "../types";
-import { Grid, Layers, ExternalLink, ArrowLeft, Calendar, Tag, Compass, ArrowRight, X } from "lucide-react";
+import { Grid, Layers, ExternalLink, ArrowLeft, Calendar, Tag, Compass, ArrowRight, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Local high-fidelity assets
 import image19 from "@/assets/19_v2.webp";
@@ -164,54 +164,111 @@ const PROJECTS: Project[] = [
 
 export default function Creations() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [zoomedImage, setZoomedImage] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSelectProject = (proj: Project) => {
     setSelectedProject(proj);
   };
 
+  const count = PROJECTS.length;
+  const goPrev = () => setActiveIndex((i) => (i - 1 + count) % count);
+  const goNext = () => setActiveIndex((i) => (i + 1) % count);
+
   return (
     <div className="text-white h-full overflow-y-auto pr-1 custom-scrollbar" id="creations-section">
-      {/* Dynamic Grid of Creations styled beautifully in their natural aspect ratios */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-4xl mx-auto w-full mb-8" id="creations-grid">
-        {PROJECTS.map((proj) => (
-          <motion.div
-            key={proj.id}
-            layoutId={`project-card-container-${proj.id}`}
-            onClick={() => handleSelectProject(proj)}
-            onHoverStart={() => setHoveredProject(proj.id)}
-            onHoverEnd={() => setHoveredProject(null)}
-            className={`group cursor-pointer relative overflow-hidden rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all duration-300 w-full ${
-              proj.aspect === "4/3" ? "aspect-[4/3]" : "aspect-[3/4]"
-            }`}
-            id={`project-card-${proj.id}`}
+      {/* Slide carousel of Creations — center slide is active/in focus, others recede to the sides */}
+      <div className="max-w-4xl mx-auto w-full mb-10" id="creations-carousel">
+        <div
+          className="relative h-[300px] sm:h-[380px] md:h-[440px] w-full flex items-center justify-center"
+          style={{ perspective: "1400px" }}
+          id="creations-carousel-stage"
+        >
+          {PROJECTS.map((proj, i) => {
+            let offset = i - activeIndex;
+            if (offset > count / 2) offset -= count;
+            if (offset < -count / 2) offset += count;
+            const absOffset = Math.abs(offset);
+            const isActive = offset === 0;
+            if (absOffset > 2) return null;
+
+            const scale = 1 - absOffset * 0.16;
+            const opacity = 1 - absOffset * 0.4;
+            const rotateY = offset * -10;
+            const translateXPct = offset * 62;
+
+            return (
+              <div
+                key={proj.id}
+                onClick={() => (isActive ? handleSelectProject(proj) : setActiveIndex(i))}
+                className={`absolute top-1/2 left-1/2 cursor-pointer rounded-xl border overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  proj.aspect === "4/3" ? "aspect-[4/3] w-[70%] sm:w-[55%]" : "aspect-[3/4] w-[46%] sm:w-[34%]"
+                } ${isActive ? "border-white/30 shadow-2xl" : "border-white/10"}`}
+                style={{
+                  transform: `translate(-50%, -50%) translateX(${translateXPct}%) scale(${scale}) rotateY(${rotateY}deg)`,
+                  zIndex: 10 - absOffset,
+                  opacity,
+                }}
+                id={`project-card-${proj.id}`}
+              >
+                <img
+                  src={proj.image}
+                  alt={proj.title}
+                  referrerPolicy="no-referrer"
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                    isActive ? "grayscale-0" : "grayscale"
+                  }`}
+                  id={`project-img-${proj.id}`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                <span className="absolute top-3 right-3 bg-black/60 backdrop-blur-md px-2 py-1 text-[8px] font-mono tracking-widest uppercase rounded text-white border border-white/10">
+                  {proj.year}
+                </span>
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                  <h4 className="font-horizon tracking-[-0.1em] font-black text-sm sm:text-lg text-white uppercase leading-[0.9]">
+                    {proj.title}
+                  </h4>
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Prev / Next controls */}
+          <button
+            onClick={goPrev}
+            className="absolute left-0 sm:-left-4 z-20 p-2 rounded-full bg-black/50 border border-white/10 text-white/70 hover:text-white hover:bg-black/80 transition-all cursor-pointer"
+            id="carousel-prev-btn"
+            aria-label="Previous project"
           >
-            {/* Project Image filling the shape */}
-            <img
-              src={proj.image}
-              alt={proj.title}
-              referrerPolicy="no-referrer"
-              className="absolute inset-0 w-full h-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-              id={`project-img-${proj.id}`}
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={goNext}
+            className="absolute right-0 sm:-right-4 z-20 p-2 rounded-full bg-black/50 border border-white/10 text-white/70 hover:text-white hover:bg-black/80 transition-all cursor-pointer"
+            id="carousel-next-btn"
+            aria-label="Next project"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex items-center justify-center gap-2 mt-6" id="carousel-dots">
+          {PROJECTS.map((proj, i) => (
+            <button
+              key={proj.id}
+              onClick={() => setActiveIndex(i)}
+              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                i === activeIndex ? "w-6 bg-white" : "w-1.5 bg-white/30 hover:bg-white/50"
+              }`}
+              aria-label={`Go to ${proj.title}`}
             />
+          ))}
+        </div>
 
-            {/* Gradient Overlay for legibility: blending with black and using white text */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10 transition-opacity duration-300" />
-
-            {/* Year indicator (top right) */}
-            <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-md px-2 py-1 text-[9px] font-mono tracking-widest uppercase rounded text-white z-20 border border-white/10">
-              {proj.year}
-            </span>
-
-            {/* Project Name at the Bottom */}
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-20">
-              <h4 className="font-horizon tracking-[-0.1em] font-black text-lg sm:text-xl text-white group-hover:text-white transition-colors uppercase leading-[0.9]">
-                {proj.title}
-              </h4>
-            </div>
-          </motion.div>
-        ))}
+        <p className="text-center text-[10px] font-mono uppercase tracking-[0.25em] text-white/40 mt-4">
+          Click the centered slide to open the full project
+        </p>
       </div>
 
       {/* Immersive Dedicated Project Detail Page */}
