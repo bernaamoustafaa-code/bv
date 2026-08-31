@@ -6,7 +6,7 @@ import Creations from "./components/Creations";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import { ArrowLeft, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg-texture.jpg";
+import heroBg from "@/assets/hero-bg-texture-v2.jpg";
 import logo from "@/assets/bernavision-logo.png";
 
 const NAV_ITEMS: { key: Exclude<SectionType, null>; label: string }[] = [
@@ -60,7 +60,8 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-              className="font-zen-dots font-bold text-xl sm:text-3xl md:text-4xl tracking-wide text-white uppercase select-none"
+              className="font-zen-dots font-bold text-xl sm:text-3xl md:text-4xl tracking-wide text-white uppercase select-none relative z-10"
+              style={{ textShadow: "0 2px 20px rgba(0,0,0,0.5)" }}
               id="hero-name"
             >
               Berna Moustapha
@@ -70,7 +71,8 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="font-doulaise text-4xl sm:text-6xl md:text-7xl leading-none text-white/95 mt-3 select-none"
+              className="font-doulaise text-4xl sm:text-6xl md:text-7xl leading-none text-black -mt-2 sm:-mt-4 md:ml-3 select-none relative z-20"
+              style={{ textShadow: "0 0 22px rgba(255,255,255,0.65), 0 2px 6px rgba(255,255,255,0.4)" }}
               id="hero-portfolio"
             >
               Portfolio
@@ -80,7 +82,8 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.45, ease: "easeOut" }}
-              className="font-italiana text-base sm:text-xl md:text-2xl tracking-[0.08em] text-white/70 mt-5 select-none"
+              className="font-italiana text-base sm:text-xl md:text-2xl tracking-[0.08em] text-white/80 mt-5 select-none relative z-10"
+              style={{ textShadow: "0 2px 16px rgba(0,0,0,0.5)" }}
               id="hero-tagline"
             >
               where stories become visual
@@ -119,7 +122,7 @@ export default function App() {
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6, delay: index * 0.08 }}
                   whileHover={{ scale: 1.08 }}
-                  className="glow-gold-text font-horizon font-black uppercase text-lg sm:text-2xl md:text-3xl tracking-[0.12em] cursor-pointer select-none transition-colors duration-300"
+                  className="metal-glow-text font-horizon font-black uppercase text-lg sm:text-2xl md:text-3xl tracking-[0.12em] cursor-pointer select-none transition-all duration-300"
                   id={"nav-btn-" + item.key}
                 >
                   {item.label}
