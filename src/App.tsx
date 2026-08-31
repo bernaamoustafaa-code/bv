@@ -6,7 +6,7 @@ import Creations from "./components/Creations";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import { ArrowLeft, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg-texture-v2.jpg";
+import heroBg from "@/assets/hero-bg-texture-v3.jpg";
 import logo from "@/assets/bernavision-logo.png";
 
 const NAV_ITEMS: { key: Exclude<SectionType, null>; label: string }[] = [
@@ -122,7 +122,7 @@ export default function App() {
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.6, delay: index * 0.08 }}
                   whileHover={{ scale: 1.08 }}
-                  className="metal-glow-text font-horizon font-black uppercase text-lg sm:text-2xl md:text-3xl tracking-[0.12em] cursor-pointer select-none transition-all duration-300"
+                  className="glow-black-text font-horizon font-black uppercase text-lg sm:text-2xl md:text-3xl tracking-[0.12em] cursor-pointer select-none transition-all duration-300"
                   id={"nav-btn-" + item.key}
                 >
                   {item.label}
