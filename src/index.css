@@ -79,19 +79,19 @@ html, body {
     0 0 65px rgba(217, 180, 106, 0.3);
 }
 
-/* Flat glowy-black text: solid black letters lifted off the dark bg by a soft halo */
+/* Flat glowy-black text: solid black letters lifted off the bg by a soft black halo */
 .glow-black-text {
   color: #050505;
   text-shadow:
-    0 0 10px rgba(255, 255, 255, 0.35),
-    0 0 24px rgba(217, 180, 106, 0.4),
-    0 0 50px rgba(217, 180, 106, 0.25);
+    0 0 8px rgba(0, 0, 0, 0.85),
+    0 0 20px rgba(0, 0, 0, 0.65),
+    0 0 44px rgba(0, 0, 0, 0.45);
 }
 
 .glow-black-text:hover {
   color: #000000;
   text-shadow:
-    0 0 14px rgba(255, 255, 255, 0.55),
-    0 0 32px rgba(243, 224, 184, 0.6),
-    0 0 65px rgba(217, 180, 106, 0.4);
+    0 0 10px rgba(0, 0, 0, 0.95),
+    0 0 26px rgba(0, 0, 0, 0.75),
+    0 0 55px rgba(0, 0, 0, 0.55);
 }
