@@ -6,7 +6,7 @@ import Creations from "./components/Creations";
 import Services from "./components/Services";
 import Contact from "./components/Contact";
 import { ArrowLeft, ChevronDown } from "lucide-react";
-import heroBg from "@/assets/hero-bg-texture-v3.jpg";
+import heroBg from "@/assets/hero-bg-texture-v4.webp";
 import logo from "@/assets/bernavision-logo.png";
 
 const NAV_ITEMS: { key: Exclude<SectionType, null>; label: string }[] = [
