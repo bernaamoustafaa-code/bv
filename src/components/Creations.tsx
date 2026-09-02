@@ -6,9 +6,6 @@ import { Grid, Layers, ExternalLink, ArrowLeft, Calendar, Tag, Compass, ArrowRig
 // Local high-fidelity assets
 import image19 from "@/assets/19_v2.webp";
 import image20 from "@/assets/20_v2.webp";
-import image28 from "@/assets/28_v2.webp";
-import image29 from "@/assets/29_v2.webp";
-import image32 from "@/assets/32_v2.webp";
 import noEye from "@/assets/no_eye_v2.webp";
 import s1 from "@/assets/s1_v2.webp";
 import s2 from "@/assets/s2_v2.webp";
@@ -34,7 +31,7 @@ const PROJECTS: Project[] = [
     year: "2026",
     description: "A moody, high-fashion visual series exploring cinematic nocturnes, shadow play, and bold silhouettes.",
     longDescription: "Dark Nights is an avant-garde AI-generated cinematic fashion narrative that explores the mystery, elegance, and solitude of urban nocturnes. Specially crafted using custom diffusion prompting, the project blends high-contrast chiaroscuro lighting, textured rain-slicked concrete, and bold neo-noir silhouettes. Each frame is designed to feel like a high-end editorial campaign, bridging the boundary between fashion design and synthetic cinematic art.",
-    image: image29,
+    image: image20,
     tags: ["Cinematic Narrative", "AI Fashion", "Chiaroscuro", "Art Direction"],
     specs: [
       { label: "Commission", value: "Berna Moustapha Studio" },
@@ -44,10 +41,7 @@ const PROJECTS: Project[] = [
     ],
     images: [
       image19,
-      image20,
-      image28,
-      image29,
-      image32
+      image20
     ],
     aspect: "3/4"
   },
